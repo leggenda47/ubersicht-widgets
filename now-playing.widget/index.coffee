@@ -100,7 +100,7 @@ infoWidth @widgetWidth - @infoHeight - 10px
     white-space: nowrap
     text-overflow: ellipsis
     float: left
-    width: @infoWidth - 32px
+    width: @infoWidth
 
 .album-name
     font-weight: bold
@@ -171,7 +171,6 @@ update: (output, domEl) ->
       # div.find('.artist-name').html(values[0])
       div.find('.song-name').html(values[1] + " / " + values[0])
       div.find('.album-name').html(values[2])
-      div.find('.song-year').html(values[3])
       songDuration = values[4]
       currentPosition = values[5]
       coverURL = values[6]
