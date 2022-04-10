@@ -13,7 +13,7 @@ font-family system, -apple-system, "Helvetica Neue"
 font-size: 10px
 position: absolute
 bottom: 10px
-left: 524px
+left: 589px
 border: 1px solid white
 color: #fff
 background: rgba(#000, 0.35)

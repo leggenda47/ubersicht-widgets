@@ -1,10 +1,8 @@
-command: 'diskutil info disk3s1 | grep "Free Space" | cut -d":" -f2 | cut -d"(" -f1 | xargs'
-
-refreshFrequency: 60*1000
+command: '/opt/homebrew/bin/displayplacer list | grep -m 1 "Hertz" | cut -d" " -f2'
 
 style: """
   bottom: 10px
-  left: 390px
+  left: 524px
   // left: 658px
   color: #fff
   font-family: Helvetica Neue
@@ -14,7 +12,7 @@ style: """
     table-layout: fixed
 
     &:after
-      content: 'ssd'
+      content: 'refresh rate'
       position: absolute
       left: 0
       top: -14px
@@ -24,8 +22,8 @@ style: """
     border: 1px solid #fff
     font-size: 22px
     font-weight: 200
-    width: 120px
-    max-width: 120px
+    width: 51px
+    max-width: 51px
     overflow: hidden
     text-shadow: 0 0 1px rgba(#000, 0.5)
     display: flex
