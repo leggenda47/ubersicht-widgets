@@ -113,7 +113,7 @@ infoWidth @widgetWidth - @infoHeight - 10px
     width: 218px
 
 .bar-container
-    width: 100%
+    width: @infoWidth
     height: @borderRadius
     border-radius: @borderRadius
     background: rgba(#fff, .5)
@@ -178,7 +178,8 @@ update: (output, domEl) ->
       isLoved = values[8]
 
       # set progress bar width
-      barWidth = 218
+      # barWidth = 218
+      barWidth = 240 - 31 - 10
       # figure out current position
       songProgress = (currentPosition / songDuration) * barWidth
       # set progress bar width
