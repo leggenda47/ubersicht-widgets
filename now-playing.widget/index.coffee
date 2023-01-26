@@ -13,7 +13,8 @@ font-family system, -apple-system, "Helvetica Neue"
 font-size: 10px
 position: absolute
 bottom: 10px
-left: 589px
+// left: 589px
+right: 390px
 border: 1px solid white
 color: #fff
 background: rgba(#000, 0.35)
@@ -23,7 +24,7 @@ background: rgba(#000, 0.35)
 // --------------------------------------------------
 widgetWidth 240px
 borderRadius 6px
-infoHeight 31px
+infoHeight 30px
 infoWidth @widgetWidth - @infoHeight - 10px
 
 // styles
