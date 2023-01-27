@@ -1,4 +1,6 @@
-command: 'uptime | grep -Eo "up [0-9]+(:[0-9]+| hrs)" | cut -d\' \' -f2'
+command: 'uptime | grep -Eo "([0-9]+ day(s)?, )?[0-9]+(:[0-9]+| hrs)" | tail -n1'
+
+refreshFrequency: 60000
 
 style: """
   bottom: 10px
@@ -19,40 +21,17 @@ style: """
       font-size: 10px
 
   td
+    background: rgba(#000, 0.35)
     border: 1px solid #fff
     font-size: 22px
     font-weight: 200
-    width: 75px
-    max-width: 75px
-    overflow: hidden
+    max-width: auto
     text-shadow: 0 0 1px rgba(#000, 0.5)
     display: flex
 
   .wrapper
     padding: 4px 6px 4px 6px
     position: relative
-
-  .col1
-    background: rgba(#000, 0.35)
-
-  p
-    padding: 0
-    margin: 0
-    font-size: 11px
-    font-weight: normal
-    max-width: 100%
-    color: #eee
-    opacity: 0
-    text-overflow: ellipsis
-    text-shadow: none
-
-  .pid
-    position: absolute
-    top: 2px
-    right: 2px
-    font-size: 10px
-    font-weight: normal
-
 """
 
 
@@ -68,9 +47,10 @@ update: (output, domEl) ->
   processes = output.split('\n')
   table     = $(domEl).find('table')
 
-  renderProcess = (cpu) ->
+  renderProcess = (a, b) ->
     "<div class='wrapper'>" +
-      "#{cpu}" +
+      "#{a}" +
+      (!!b && ", #{b} hours" || "") +
     "</div>"
 
   args = processes[0].split(',')
