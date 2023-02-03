@@ -1,4 +1,4 @@
-command: 'uptime | grep -Eo "([0-9]+ day(s)?, )?[0-9]+(:[0-9]+| hrs)" | tail -n1'
+command: 'uptime | grep -Eo "up (([0-9]+ day(s)?,)?( *[0-9]+(:[0-9]+)?( hrs| mins| hr)?))|( *[0-9] mins)" | cut -d\' \' -f2- | tr -s \' \''
 
 refreshFrequency: 60000
 
@@ -47,10 +47,11 @@ update: (output, domEl) ->
   processes = output.split('\n')
   table     = $(domEl).find('table')
 
-  renderProcess = (a, b) ->
+  renderProcess = (a, b, c) ->
     "<div class='wrapper'>" +
       "#{a}" +
-      (!!b && ", #{b} hours" || "") +
+      (!!b && ", #{b}" || "") +
+      (!!c && " #{c}" || " hours") +
     "</div>"
 
   args = processes[0].split(',')
