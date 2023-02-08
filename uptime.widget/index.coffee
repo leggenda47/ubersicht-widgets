@@ -47,11 +47,10 @@ update: (output, domEl) ->
   processes = output.split('\n')
   table     = $(domEl).find('table')
 
-  renderProcess = (a, b, c) ->
+  renderProcess = (a, b) ->
     "<div class='wrapper'>" +
       "#{a}" +
       (!!b && ", #{b}" || "") +
-      (!!c && " #{c}" || " hours") +
     "</div>"
 
   args = processes[0].split(',')
