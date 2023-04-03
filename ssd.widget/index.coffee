@@ -1,4 +1,4 @@
-command: 'diskutil info disk3s1 | grep "Free Space" | cut -d":" -f2 | cut -d"(" -f1 | xargs'
+command: 'diskutil info disk4s1 | grep "Free Space" | cut -d":" -f2 | cut -d"(" -f1 | xargs'
 
 refreshFrequency: 60*1000
 
